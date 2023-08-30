@@ -5,10 +5,10 @@ const ExpressError = require("../expressError")
 const router = express.Router();
 const db = require("../db");
 
-router.get('/', (req, res) => {
-    const results = db.query(`SELECT * FROM users`);
-    // return res.json(results.rows);
-    return res.json('this is a test');
+router.get('/', async (req, res) => {
+    const results = await db.query(`SELECT * FROM users`);
+    return res.json(results.rows);
+    // return res.json('this is a test');
 });
 
 
