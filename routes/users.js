@@ -7,9 +7,32 @@ const db = require("../db");
 
 router.get('/', async (req, res) => {
     const results = await db.query(`SELECT * FROM users`);
+    // console.log(req);
+    console.log(results);
     return res.json(results.rows);
-    // return res.json('this is a test');
 });
+
+///
+// const getAllUsers = () => db.query('select * FROM users')
+//   .then(response => response.rows);
+
+// // and:
+// router.get('/', (req, res) => {
+//   getAllUsers()
+//     .then((users) => {
+//       console.log(users);
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//       // handle errors
+//     });
+// });
+
+// router.get('/', (req, res) => {
+//     const results = db.query(`SELECT * FROM users`);
+//     // return res.json(results.rows);
+//     return res.json('this is a test');
+// });
 
 
 

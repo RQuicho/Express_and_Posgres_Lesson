@@ -12,10 +12,18 @@ if (process.env.NODE_ENV === "test") {
   DB_URI = "postgresql:///usersdb";
 }
 
-let db = new Client({
-  connectionString: DB_URI
+const db = new Client({
+  host: "/var/run/postgresql/",
+  database: "usersdb",
 });
 
 db.connect();
+
+
+// let db = new Client({
+//   connectionString: DB_URI
+// });
+
+// db.connect();
 
 module.exports = db;
